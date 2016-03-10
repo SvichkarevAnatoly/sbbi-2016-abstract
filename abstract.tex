@@ -8,10 +8,31 @@
 \usepackage{mathptmx} % шрифт Times New Roman (для текста и для формул) 
 
 % отмена отступов перед новым абзацем для всего текста
+% в Abstract надо вручную отменять отступы
 \setlength\parindent{0pt}
+
+% для сноски в виде звёздочки
+\makeatletter
+\def\@xfootnote[#1]{%
+    \protected@xdef\@thefnmark{#1}%
+    \@footnotemark\@footnotetext}
+\makeatother
+
+% убрать нумерацию страниц
+\pagenumbering{gobble}
 
 \begin{document} % Конец преамбулы, начало текста
 
-This is empty abstract
+% изменение заголовка
+\renewcommand{\abstractname}{\large TITLE}
+\begin{abstract}
+    \normalsize % переход к обычному размеру шрифта
+    \bigskip % отделение от заголовка одной пустой линией
+    \noindent I.~A.~Ivanov\footnote[*]{Corresponding author}, N.~A.~Sidorov \\
+    \noindent Institute of Cytology and Genetics SB RAS, Novosibirsk, Russia \\
+    \noindent e-mail: ivanov@bionet.nsc.ru \\
+\end{abstract}
+
+This is example abstract.
 
 \end{document} % Конец документа
