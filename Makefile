@@ -1,15 +1,18 @@
 SHELL := /bin/bash
 
-main=abstract
+texfile=abstract
 
 read:	pdf clean_tmp
-	evince ${main}.pdf &
+	evince ${texfile}.pdf &
 	
-pdf:	${main}.tex
-	pdflatex ${main}.tex
+pdf:	${texfile}.tex
+	pdflatex ${texfile}.tex
+	bibtex ${texfile}
+	pdflatex ${texfile}.tex
+	pdflatex ${texfile}.tex
 
 clean_tmp:
-	rm -f ${main}.{ps,log,aux,out,dvi,bbl,blg}
+	rm -f ${texfile}.{ps,log,aux,out,dvi,bbl,blg}
 
 clean:
-	rm -f ${main}.{ps,pdf,log,aux,out,dvi,bbl,blg}
+	rm -f ${texfile}.{ps,pdf,log,aux,out,dvi,bbl,blg}
