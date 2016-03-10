@@ -1,15 +1,15 @@
 SHELL := /bin/bash
 
-report=report2
+main=abstract
 
 read:	pdf clean_tmp
-	evince ${report}.pdf &
+	evince ${main}.pdf &
 	
-pdf:	${report}.tex
-	pdflatex ${report}.tex
+pdf:	${main}.tex
+	pdflatex ${main}.tex
 
 clean_tmp:
-	rm -f ${report}.{ps,log,aux,out,dvi,bbl,blg}
+	rm -f ${main}.{ps,log,aux,out,dvi,bbl,blg}
 
 clean:
-	rm -f ${report}.{ps,pdf,log,aux,out,dvi,bbl,blg}
+	rm -f ${main}.{ps,pdf,log,aux,out,dvi,bbl,blg}
