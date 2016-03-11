@@ -2,8 +2,7 @@
 \documentclass[12pt, a4paper]{article} % Класс печатного документа
 
 \usepackage[utf8]{inputenc} % Кодировка исходного текста - utf8
-\usepackage[english,russian]{babel} % Язык документа - русский, чтобы дописать по-русски
-% \usepackage[english]{babel} % Язык документа
+\usepackage[english]{babel} % Язык документа
 % отступы (margins)
 \usepackage[left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{mathptmx} % шрифт Times New Roman (для текста и для формул) 
@@ -25,14 +24,15 @@
 \begin{document} % Конец преамбулы, начало текста
 
 % изменение заголовка
-\renewcommand{\abstractname}{\large
+\renewcommand{\abstractname}{\large \textbf{\uppercase{
     Method development of Differential Evolution
-    for search mathematical model's options}
+    for search mathematical model's options}}}
 \begin{abstract}
     \normalsize % переход к обычному размеру шрифта
     \bigskip % отделение от заголовка одной пустой линией
     \noindent A.~V.~Svichkarev\footnote[*]{Corresponding author}, K.~N.~Kozlov \\
-    \noindent Peter the Great St.Petersburg Polytechnic University,
+    \noindent System biology and bioinformatics lab, IAMM,
+    Peter the Great St.Petersburg Polytechnic University,
 St.Petersburg, Russia \\
     \noindent e-mail: svichkarev.anatoly@gmail.com \\
 \end{abstract}
@@ -54,41 +54,6 @@ Original Differential Evolution (DE)
 is a stochastic parallel direct search
 evolution strategy optimization method
 which was proposed by Storn and Price in 1995 \cite{Storn95}. 
-
-Целью данной работы являлось улучшение взаимодействия
-между методом оптимизации
-и функционалом качества
-для увеличения производительности
-работы программы DEEP.
-
-Математические модели в биоинформатике
-в большинстве случаев создаются
-на интерпретируемых языках программирования,
-к примеру на языке R для статистической обработки данных.
-Для поиска параметров таких моделей
-требуется многократно запускать
-и инициализировать интерпретатор
-для вычисления функционала.
-Это требует больших вычислительных затрат.
-Однако интерпретатор может быть встроен
-в программу DEEP для
-многократного повторного использования.
-
-Было спроектировано и реализовано
-встраивание интерпретатора языка R
-в DEEP с использованием
-функций и структур библиотеки GLib.
-Решение основано на применении
-ассинхронной очереди задач и пула потоков.
-Полученная реализация была
-протестирована на прикладной биологической задаче
-сегментации движения макромолекул в клетках.
-Показана эффективность улучшения интеграции
-по сравнению со преждней реализации,
-следствием чего является
-увеличение производительности DEEP.
-Развитие DEEP ведёт к увеличению
-количества проверяемых гипотез.
 
 \vfill % прижать оставшуюся часть к дну страницы
 \bibliographystyle{ieeetr} % распространнённый стиль списка литературы
