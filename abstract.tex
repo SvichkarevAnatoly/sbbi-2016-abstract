@@ -2,8 +2,7 @@
 \documentclass[12pt, a4paper]{article} % Класс печатного документа
 
 \usepackage[utf8]{inputenc} % Кодировка исходного текста - utf8
-\usepackage[english,russian]{babel} % Язык документа - русский, чтобы дописать по-русски
-% \usepackage[english]{babel} % Язык документа
+\usepackage[english]{babel} % Язык документа
 % отступы (margins)
 \usepackage[left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{mathptmx} % шрифт Times New Roman (для текста и для формул) 
@@ -45,51 +44,62 @@ is challenging due to the diversity
 of biomedical applications and
 the necessity to treat large sets of
 heterogeneous data in specialized formats \cite{mendes1998non}.
-Поэтому математическое моделирование
-часто проводится в специализированной среде,
-использующей какой-либо интерпретатор.
-Это однако ведёт к росту
-вычислительных затрат
-при численном определении
-параметров модели
-путём подгонки к данным.
+As the result, mathematical modeling
+is carried out in special environment
+which uses any interpreter.
+However, it leads to the growth
+of computational costs
+in the case of a numerical definition
+of a model's parameters
+via fitting to the data.
 
-Здесь мы предлагаем улучшить
-взаимодействие между
-Differential Evolution Entirely Parallel (DEEP)
-method develop recently~\cite{Kozlov11}
-and целевой функцией сравнения
-решений модели с данными.
-Было достигнуто увеличение
-производительности DEEP
-путём встраивания интерпретатора.
-Решение основано на применении
-архитектуры master-slave,
-в которой master процесс
-организует ассинхронную очередь задач,
-выполняющихся в пуле готовых интерпретаторов.
+Here we suggest improving
+the interaction between
+Differential Evolution Entirely Parallel (DEEP) method,
+which has been developed recently~\cite{Kozlov11},
+and an objective function
+of the comparison between
+model's solution and the data.
+An increase in DEEP's productivity
+was achived via embed an interpreter.
 
-Полученная реализация использует
-функции и структуры библиотеки GLib
-и была протестирована
-на прикладной биологической задаче
-сегментации движения макромолекул в клетках.
-Показана эффективность улучшения интеграции
-по сравнению со преждней реализации,
-следствием чего является
-увеличение производительности DEEP.
+The solution is based on using
+arhitecture master-slave,
+where the master process
+organizes the asynchronous queue
+of tasks which are accomplished
+in the pool of ready interpreters.
 
-Реализованный подход применим для использования
-таких интерпретируемых языков,
-как R, Octave, Python and etc.
+The achived realization tested
+on the applied biology task
+of macromolecular movements'
+segmentation in cells
+uses the functions and structures
+of GLib.
 
-В заключение стоит сказать,
-не просели по памяти.
-можно использовать более сложные функции качества.
-Улучшение DEEP ведёт к увеличению
-количества проверяемых гипотез
-в области системной биологии
-и биоинформатике.
+We showed the efficiency
+of improving the integraition
+in comparison with the
+previous realization
+that results in the increase
+of DEEP's productivity.
+
+This aproach can be applied
+to the use of such interpreted
+languages as R, Octave, Python, etc.
+
+In the conclusion,
+we want to say
+that applied methods have not
+led to the significant use of RAM
+due to which it is possible to use
+more complex objective functions.
+
+DEEP's improvement results in
+the increase in the number of
+tested hypotheses
+in the field of systems biology
+and bioinformatics.
 
 \vfill % прижать оставшуюся часть к дну страницы
 \bibliographystyle{ieeetr} % распространнённый стиль списка литературы
