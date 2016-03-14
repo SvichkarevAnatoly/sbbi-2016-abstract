@@ -44,60 +44,55 @@ is challenging due to the diversity
 of biomedical applications and
 the necessity to treat large sets of
 heterogeneous data in specialized formats \cite{mendes1998non}.
-As the result, mathematical modeling
-is carried out in special environment
-which uses any interpreter.
-However, it leads to the growth
-of computational costs
-in the case of a numerical definition
-of a model's parameters
-via fitting to the data.
+These tasks usually require
+specialized computer environment
+and interpreted language for
+mathematical modeling.
+However, this approach makes
+numerical estimation of parameters
+a mathematical model
+extremely computationally intensive.
 
-Here we suggest improving
-the interaction between
-Differential Evolution Entirely Parallel (DEEP) method,
-which has been developed recently~\cite{Kozlov11},
-and an objective function
-of the comparison between
-model's solution and the data.
-An increase in DEEP's productivity
-was achived via embed an interpreter.
+Here we propose
+an enhancement to the
+Differential Evolution Entirely Parallel (DEEP) method
+developed recently~\cite{Kozlov11}.
+Our approach reduces the
+communication bottleneck
+between DEEP and objective function
+that describes the deviation
+of model solution
+from the data.
+An interpreter needed to
+calculate model solution
+is embedded into
+DEEP that uses
+master-slave architecture.
+A master process
+organizes an asynchronous queue
+of tasks which are run
+in the pool of
+already started identical interpreters.
 
-The solution is based on using
-arhitecture master-slave,
-where the master process
-organizes the asynchronous queue
-of tasks which are accomplished
-in the pool of ready interpreters.
+The developed approach was
+applied to the biological problem
+of macromolecular intracellular
+trajectory segmentation.
+We showed the efficiency of improved method
+in comparison with the previous one.
+The developed approach can be applied to
+such interpreted languages like
+R, Octave, Python etc.
 
-The achived realization tested
-on the applied biology task
-of macromolecular movements'
-segmentation in cells
-uses the functions and structures
-of GLib.
-
-We showed the efficiency
-of improving the integraition
-in comparison with the
-previous realization
-that results in the increase
-of DEEP's productivity.
-
-This aproach can be applied
-to the use of such interpreted
-languages as R, Octave, Python, etc.
-
-In the conclusion,
-we want to say
-that applied methods have not
-led to the significant use of RAM
-due to which it is possible to use
+Obtained results allowed us
+to conclude that
+the developed approach
+do not lead to significant increase
+in RAM allocation thus making
+it possible to use
 more complex objective functions.
-
-DEEP's improvement results in
-the increase in the number of
-tested hypotheses
+An improved DEEP method ready
+to be used as the global optimizer
 in the field of systems biology
 and bioinformatics.
 
